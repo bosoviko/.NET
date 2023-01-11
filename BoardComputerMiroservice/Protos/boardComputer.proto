@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "BoardComputerMiroservice.Protos";
+
+service GrpcBoardComputer {
+	rpc GetAllBoardComputers (GetAllRequest) returns (BoardComputerResponse);
+}
+
+message GetAllRequest {}
+
+message GrpcBoardComputerModel {
+	int32 boardComputerId = 1;
+	string name = 2;
+	string company = 3;
+	string model = 4;
+	int32 serialNumber = 5;
+	float memory = 6;
+}
+
+message BoardComputerResponse {
+	repeated GrpcBoardComputerModel boardComputer = 1;
+}
